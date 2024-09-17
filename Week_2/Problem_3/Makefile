@@ -1,38 +1,23 @@
-# Makefile for problem_1
-
-# Compiler
-CC = g++
-
-# Compiler flags
-CFLAGS = -Wall
-
-# Executable file name
-EXEC = program
-
-# Source file
+# Variables
+CXX = g++
+CXXFLAGS = -Wall
+TARGET = Solving_Quadratic_Equation
 SRC = Solving_Quadratic_Equation.cpp
 
-# Object file
-OBJ = $(SRC:.cpp=.o)
+# Default target: compile the program
+all: $(TARGET)
 
-# Compile the code
-all: $(EXEC)
+# Compile the Solving_Quadratic_Equation.cpp
+$(TARGET): $(SRC)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
-# Create the executable
-$(EXEC): $(OBJ)
-	$(CC) $(CFLAGS) -o $(EXEC) $(OBJ)
+# Run the program in test mode (using test.txt)
+test: $(TARGET)
+	./$(TARGET) test
 
-# Create object files
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Clean up
+# Clean up the compiled files
 clean:
-	rm -f $(OBJ) $(EXEC)
+	rm -f $(TARGET)
 
-# Run the program
-run: $(EXEC)
-	./$(EXEC)
-
-# Alias for run
-test: run
+# Phony targets to avoid conflicts
+.PHONY: all clean test
