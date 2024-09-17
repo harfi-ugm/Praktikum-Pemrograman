@@ -1,11 +1,38 @@
-all:
-	g++ -o Solving_Quadratic_Equation Solving_Quadratic_Equation.cpp
+# Makefile for problem_1
 
-dump:
-	objdump -d Solving_Quadratic_Equation > Solving_Quadratic_Equation.asm
+# Compiler
+CC = g++
 
-Clean:
-	rm -f Solving_Quadratic_Equation Solving_Quadratic_Equation.asm
+# Compiler flags
+CFLAGS = -Wall
 
-run: Solving_Quadratic_Equation    
-	./Solving_Quadratic_Equation
+# Executable file name
+EXEC = program
+
+# Source file
+SRC = Solving_Quadratic_Equation.cpp
+
+# Object file
+OBJ = $(SRC:.cpp=.o)
+
+# Compile the code
+all: $(EXEC)
+
+# Create the executable
+$(EXEC): $(OBJ)
+	$(CC) $(CFLAGS) -o $(EXEC) $(OBJ)
+
+# Create object files
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Clean up
+clean:
+	rm -f $(OBJ) $(EXEC)
+
+# Run the program
+run: $(EXEC)
+	./$(EXEC)
+
+# Alias for run
+test: run
