@@ -1,11 +1,38 @@
-all:
-	g++ -o Creating_Payslip Creating_Payslip.cpp
+# Makefile for problem_1
 
-dump:
-	objdump -d Creating_Payslip > Creating_Payslip.asm
+# Compiler
+CC = g++
 
-Clean:
-	rm -f Creating_Payslip Creating_Payslip.asm
+# Compiler flags
+CFLAGS = -Wall
 
-run: Creating_Payslip    
-	./Creating_Payslip
+# Executable file name
+EXEC = program
+
+# Source file
+SRC = Creating_Payslip.cpp
+
+# Object file
+OBJ = $(SRC:.cpp=.o)
+
+# Compile the code
+all: $(EXEC)
+
+# Create the executable
+$(EXEC): $(OBJ)
+	$(CC) $(CFLAGS) -o $(EXEC) $(OBJ)
+
+# Create object files
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Clean up
+clean:
+	rm -f $(OBJ) $(EXEC)
+
+# Run the program
+run: $(EXEC)
+	./$(EXEC)
+
+# Alias for run
+test: run
