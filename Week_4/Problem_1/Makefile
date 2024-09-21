@@ -1,28 +1,34 @@
-#compiler
-CC = g++ 
+# Compiler
+CC = g++
 
-#Compiler flags
-CFLAGS = -wall
+# Compiler flags
+CFLAGS = -Wall
 
-#Executable file name
-EXEC = SUM
+# Executable file
+EXEC = sum_program
 
-#Source file
-SRC = sum.cpp
+# Source file
+SRC = Sum.cpp
 
-#Compile the program
+# Rule to compile
 all: $(EXEC)
 
-#Create the executable
-%(EXEC): $(SRC)
-	$(CXX) $(CXXFLAGS) -o $(EXEC) $(SRC)
+# Create executable
+$(EXEC): $(SRC)
+	$(CC) $(CFLAGS) -o $(EXEC) $(SRC)
 
-#Clean up the compiled files
-clean:
-	rm -f $(EXEC)
-
-#Run the program
+# Run the program
 run: $(EXEC)
 	./$(EXEC)
 
-.PHONY: all clean test
+# Test the program using test.txt
+test: $(EXEC)
+	@echo "Testing Sum of Natural Numbers program..."
+	@while read n; do \
+		echo $$n | ./$(EXEC); \
+	done < test.txt
+
+
+# Clean the compiled files
+clean:
+	rm -f $(EXEC)

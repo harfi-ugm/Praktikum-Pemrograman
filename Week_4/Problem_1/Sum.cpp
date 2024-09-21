@@ -1,21 +1,32 @@
 #include <iostream>
+#include <sstream>
 using namespace std;
 
-int main () {
-    int n, sum = 0;
+// Function to calculate the sum of natural numbers up to n
+string sumOfNaturalNumbers(int n) {
+    int sum = 0;
+    stringstream explanation; //build explanation string
 
-    // Input
-    cout << "Enter positive integer";
-    cin >> n;
-
-    //Calculate sum of natural number from 1 to n
-    for (int i = 1; i <= n; ++i){
+    explanation << "(";
+    for (int i = 1; i <= n; ++i) {
         sum += i;
+        explanation << i;
+        if (i != n) { //add "+" except for the last number
+            explanation << " + ";
+        }
     }
+    explanation << " = " << sum << ")";
+    
+    string result = "Sum =" + to_string(sum) + "\nExplanation: " + explanation.str();
+    return result;
+    
+}
 
-    //ouput
-    cout << "Sum = " << sum << endl;
-
+int main() {
+    int n;
+    cin >> n;
+    cout << "Input: " << n << endl;
+    cout << sumOfNaturalNumbers(n) << endl;
+    cout << endl;
     return 0;
-
 }
