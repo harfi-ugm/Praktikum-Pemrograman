@@ -18,12 +18,14 @@ int main() {
         cout << "The equation has two distinct real roots: " << endl;
         cout << "x1 = " << x1 << endl;
         cout << "x2 = " << x2 << endl;
+        cout << endl;
         
     } else if (discriminant == 0) {
         // One real root
         double x = -b / (2 * a);
         cout << "The equation has one real root: " << std::endl;
         cout << "x = " << x << endl;
+        cout << endl;
         
     } else {
         // No real roots, complex roots
@@ -32,6 +34,7 @@ int main() {
         cout << "The equation has complex roots: " << endl;
         cout << "x1 = " << realPart << " + " << imaginaryPart << "i" << endl;
         cout << "x2 = " << realPart << " - " << imaginaryPart << "i" << endl;
+        cout << endl;
     }
 
     return 0;
