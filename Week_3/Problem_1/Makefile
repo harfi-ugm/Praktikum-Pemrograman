@@ -11,9 +11,15 @@ all: $(TARGET)
 $(TARGET): $(SRC)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
+run: $(TARGET)
+	./$(TARGET)
+	
 # Run the program in test mode (using test.txt)
 test: $(TARGET)
-	./$(TARGET) test
+	@echo "Testing Sum of Natural Numbers program..."
+	@while read n; do \
+		echo $$n | ./$(TARGET); \
+	done < test.txt
 
 # Clean up the compiled files
 clean:
