@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
     double a, b, c;
-    cout << "Enter coefficients a, b, and c: ";
+    cout << "Coefficients a, b, and c: ";
     cin >> a >> b >> c; //
 
     // Calculate the discriminant

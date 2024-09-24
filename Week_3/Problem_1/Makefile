@@ -16,7 +16,7 @@ run: $(TARGET)
 	
 # Run the program in test mode (using test.txt)
 test: $(TARGET)
-	@echo "Testing Sum of Natural Numbers program..."
+	@echo "Calculating Determinant..."
 	@while read n; do \
 		echo $$n | ./$(TARGET); \
 	done < test.txt

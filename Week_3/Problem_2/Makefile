@@ -13,7 +13,14 @@ $(TARGET): $(SRC)
 
 # Run the program in test mode (using test.txt)
 test: $(TARGET)
-	./$(TARGET) test
+	@echo "Determining largest number..."
+	@while read n; do \
+		echo $$n | ./$(TARGET); \
+	done < test.txt
+
+
+run: $(TARGET)
+	./$(TARGET) run	
 
 # Clean up the compiled files
 clean:

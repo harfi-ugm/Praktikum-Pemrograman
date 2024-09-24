@@ -21,12 +21,14 @@ int main() {
         cout << "Roots are real and distinct." << endl;
         cout << "x1 = " << x1 << endl;
         cout << "x2 = " << x2 << endl;
+        cout << endl;
     }
     else if (determinant == 0) {
         // Real and equal roots
         x1 = x2 = -b / (2 * a);
         cout << "Roots are real and equal." << endl;
         cout << "x1 = x2 = " << x1 << endl;
+        cout << endl;
     }
     else {
         // Imaginary roots
@@ -35,6 +37,7 @@ int main() {
         cout << "Roots are imaginary." << endl;
         cout << "x1 = " << realPart << " + " << imaginaryPart << "i" << endl;
         cout << "x2 = " << realPart << " - " << imaginaryPart << "i" << endl;
+        cout << endl;
     }
 
     return 0;

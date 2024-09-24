@@ -31,6 +31,7 @@ int main () {
     cout << "Installment: Rp" << fixed << setprecision(2) << installment << endl;
     cout << "Insurance: Rp" << fixed << setprecision(2) << insurance << endl; 
     cout << "Net Salary: Rp " << fixed << setprecision(2) << netSalary << endl;
+    cout << endl;
     
     return 0; // End of the program
 }
