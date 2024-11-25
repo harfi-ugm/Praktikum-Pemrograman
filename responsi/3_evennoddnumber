@@ -1,19 +1,17 @@
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
 int main() {
-    vector<int> num = {1,2,3,4,5};
-    int evenCount = 0, oddCount = 0;
+    vector<int> nums = {1,2,3,4,5};
+    int oddCount = 0, evenCount = 0;
     
-    for (nums: num) {
-        if(num % 2 == 0)evenCount++
-        else oddCount++
+    for (int num:nums) {
+        if(num % 2 == 0)evenCount++;
+        else oddCount++;
     }
-    cout << "odd number is: " << oddCount << "even number is: " << evenCount << endl;
+    cout << "odd number is: " << oddCount << " even number is: " << evenCount << endl;
     return 0;
-    
     
 }
